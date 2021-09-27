@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daiki-ogawa <daiki-ogawa@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 21:51:10 by daiki-ogawa       #+#    #+#             */
-/*   Updated: 2021/09/27 19:06:10 by daiki-ogawa      ###   ########.fr       */
+/*   Updated: 2021/09/27 19:07:29 by daiki-ogawa      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 int	set_value(char **save, char **line, char *split_point)
 {
