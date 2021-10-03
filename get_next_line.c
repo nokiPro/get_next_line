@@ -6,7 +6,7 @@
 /*   By: daiki-ogawa <daiki-ogawa@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 21:51:10 by daiki-ogawa       #+#    #+#             */
-/*   Updated: 2021/09/27 19:06:10 by daiki-ogawa      ###   ########.fr       */
+/*   Updated: 2021/10/03 17:24:51 by daiki-ogawa      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ int	read_fd(int fd, char **save, char **line, char **buf)
 		if (!tmp)
 			return (ERROR);
 		free(tmp);
+		tmp = NULL;
 	}
 	return (set_value(save, line, split_point));
 }
@@ -82,7 +83,8 @@ char	*get_next_line(int fd)
 		return (NULL);
 	status = read_fd(fd, &save[fd], &line, &buf);
 	free(buf);
-	if (status == ERROR || status == END_OF_FILE)
+	buf = NULL;
+	if (status == ERROR)
 	{
 		free(save[fd]);
 		save[fd] = NULL;

@@ -6,34 +6,34 @@
 /*   By: daiki-ogawa <daiki-ogawa@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 16:46:30 by daiki-ogawa       #+#    #+#             */
-/*   Updated: 2021/09/27 19:06:19 by daiki-ogawa      ###   ########.fr       */
+/*   Updated: 2021/10/03 17:07:03 by daiki-ogawa      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t	ft_strlen(const char *s)
+size_t	ft_strlen(char const *c)
 {
-	size_t	ans;
+	size_t	i;
 
-	ans = 0;
-	while (s[ans])
-		ans++;
-	return (ans);
+	i = 0;
+	while (c[i] != '\0')
+		i++;
+	return (i);
 }
 
-char	*ft_strdup(const char *s)
+char	*ft_strdup(const char *s1)
 {
 	char	*p;
 	size_t	i;
 
-	p = malloc(sizeof(char) * (ft_strlen(s) + 1));
+	p = malloc(sizeof(char) * (ft_strlen(s1) + 1));
 	if (!p)
 		return (NULL);
 	i = 0;
-	while (s[i] != '\0')
+	while (s1[i] != '\0')
 	{
-		p[i] = s[i];
+		p[i] = s1[i];
 		i++;
 	}
 	p[i] = '\0';
@@ -42,18 +42,18 @@ char	*ft_strdup(const char *s)
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char			*substr;
-	size_t			i;
-	size_t			s_len;
+	char	*substr;
+	size_t	i;
+	size_t	s_len;
 
 	substr = malloc(sizeof(char) * (len + 1));
+	s_len = ft_strlen(s);
 	if (!substr)
 		return (NULL);
 	*substr = '\0';
-	if (start >= ft_strlen(s))
+	if (start >= s_len)
 		return (substr);
 	i = 0;
-	s_len = ft_strlen(s);
 	while (i < len && i < s_len)
 	{
 		substr[i] = *(s + start + i);
@@ -65,22 +65,23 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 char	*ft_strchr(const char *s, int c)
 {
-	char	*str;
+	size_t	i;
 
-	str = (char *)s;
-	while (*str || !c)
+	i = 0;
+	while (1)
 	{
-		if (*str == (char)c)
-			return (str);
-		str++;
+		if (s[i] == (char)c)
+			return ((char *)&s[i]);
+		if (!s[i])
+			return (NULL);
+		i++;
 	}
-	return (NULL);
 }
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char			*str;
-	char			*ans;
+	char			*ret;
 	unsigned int	total_len;
 
 	if (!s1 && !s2)
@@ -93,11 +94,11 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	str = malloc(total_len + 1);
 	if (!str)
 		return (NULL);
-	ans = str;
+	ret = str;
 	while (*s1)
 		*str++ = *s1++;
 	while (*s2)
 		*str++ = *s2++;
 	*str = '\0';
-	return (ans);
+	return (ret);
 }
