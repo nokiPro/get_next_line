@@ -6,18 +6,16 @@
 /*   By: daiki-ogawa <daiki-ogawa@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 21:51:13 by daiki-ogawa       #+#    #+#             */
-/*   Updated: 2021/10/03 17:09:36 by daiki-ogawa      ###   ########.fr       */
+/*   Updated: 2021/10/03 17:40:26 by daiki-ogawa      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-# include <unistd.h>
 # include <stdlib.h>
+# include <unistd.h>
 # include <limits.h>
-# include <errno.h>
-# include <fcntl.h>
 # include <stdio.h>
 
 # ifndef BUFFER_SIZE
